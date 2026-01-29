@@ -1,4 +1,4 @@
-name: Express CI/CD to EC2
+name: Express CI/CD Pipline to EC2
 
 on:
   push:
