@@ -26,7 +26,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            cd /home/ubuntu/expense-tracker/expense-tracker-backend
+            cd /home/ubuntu/apps/expense-tracker/expense-tracker-backend
             git pull origin main
             npm install --production
             pm2 restart all
