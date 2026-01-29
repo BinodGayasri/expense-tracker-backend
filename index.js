@@ -300,7 +300,7 @@ app.get('/api/expenses/stats/:userId', async (req, res) => {
 
     // Total expenses
     const totalResult = await Expense.aggregate([
-      { $match: { userId: mongoose.Types.ObjectId(userId), ...dateFilter } },
+      { $match: { userId: new  mongoose.Types.ObjectId(userId), ...dateFilter } },
       { $group: { _id: null, total: { $sum: '$amount' }, count: { $sum: 1 } } }
     ]);
 
@@ -309,14 +309,14 @@ app.get('/api/expenses/stats/:userId', async (req, res) => {
 
     // By category
     const byCategory = await Expense.aggregate([
-      { $match: { userId: mongoose.Types.ObjectId(userId), ...dateFilter } },
+      { $match: { userId: new  mongoose.Types.ObjectId(userId), ...dateFilter } },
       { $group: { _id: '$category', total: { $sum: '$amount' }, count: { $sum: 1 } } },
       { $sort: { total: -1 } }
     ]);
 
     // Monthly breakdown
     const monthlyBreakdown = await Expense.aggregate([
-      { $match: { userId: mongoose.Types.ObjectId(userId), ...dateFilter } },
+      { $match: { userId: new  mongoose.Types.ObjectId(userId), ...dateFilter } },
       {
         $group: {
           _id: {
