@@ -41,7 +41,7 @@ jobs:
             npm install --production
 
             echo "Restarting PM2 app..."
-            pm2 restart 0
+            pm2 restart index.js
             pm2 save
           EOF
 
