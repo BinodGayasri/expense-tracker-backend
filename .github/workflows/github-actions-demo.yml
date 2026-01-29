@@ -29,4 +29,5 @@ jobs:
             cd /home/ubuntu/apps/expense-tracker/expense-tracker-backend
             git pull origin main
             npm install --production
-            pm2 restart all
+            pm2 restart 0
+            pm2 save
